@@ -1,46 +1,63 @@
 //create a variable to hold one ball
 let b;
-let anotherBall;
-let thirdBall;
-let fourthBall;
+let anotherRoll;
+let birdRoll
+let bigTree
+let littleTree
+
+
 
 function setup() {
   createCanvas(800, 400);
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"yellow");
-  thirdBall = new Ball(100,150, "orange");
-  fourthBall = new Ball(200,300, "purple");
+  b = new Roll(20, 100,"blue"); //make a new ball from the Ball class and call it b.
+  anotherRoll = new Roll(300,30,"green");
+  birdRoll= new Roll(400,40,"red");
+  bigTree= new Tree(500,100,"green")
+  littleTree= new Tree(50,10,"green")
 }
 
 
 function draw(){
 	background("blue");
-    b.drawBall(); //draw the ball called b (go look in the Ball class for the drawBall function)
-    b.moveBall(); //move the ball called b (go look in the Ball class for the moveBall function)
-    anotherBall.drawBall();
-    anotherBall.moveBall();
-    thirdBall.drawBall();
-    thirdBall.moveBall();
-    fourthBall.drawBall();
-    fourthBall.moveBall();
+    b.drawRoll(); //draw the ball called b (go look in the Ball class for the drawBall function)
+    b.moveRoll(); //move the ball called b (go look in the Ball class for the moveBall function)
+    anotherRoll.drawRoll();
+    anotherRoll.moveRoll();
+    birdRoll.drawRoll();
+    birdRoll.moveRoll();
+    bigTree.drawTree();
+    littleTree.drawTree();
+}
+
+class Tree{
+constructor(x,y,color){
+  this.x = x;
+  this.y = y;
+  this.color= color;
+}
+drawTree(){
+  stroke(4);
+  fill(this.color);
+  ellipse(this.x, this.y, 100,100)
+}
 
 }
 
-
 //ball class from which to create new balls with similar properties.
-class Ball {
+class Roll {
 
 	constructor(x,y,color){ //every ball needs an x value and a y value
 		    this.x = x;
     		this.y = y;
         this.color= color;
 	}
-	drawBall(){  // draw a ball on the screen at x,y
-    		stroke(0);
+	drawRoll(){  // draw a ball on the screen at x,y
+    		stroke(3);
     		fill(this.color);
-		    hypercube(this.x,this.y,10,10);
+        ellipse(this.x, this.y, 10,10)
+
 	}
-	moveBall(){ //update the location of the ball, so it moves across the screen
+	moveRoll(){ //update the location of the ball, so it moves across the screen
 		this.x = this.x+2;
 		this.y = this.y+.5;
 	}
