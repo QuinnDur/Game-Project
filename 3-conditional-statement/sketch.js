@@ -4,6 +4,12 @@ let arrows = [];
 //create a variable to hold your avatar
 let me;
 
+let mySound
+
+function preload() {
+  soundFormats('mp3', 'ogg', 'wav');
+  mySound = loadSound('boom.wav')
+}
 
 function setup() {
   createCanvas(500, 400);
@@ -113,6 +119,8 @@ class Arrow {
             this.speed = -this.speed;
             fill("red")
             ellipse(this.x, this.y, 30,30)
+            mySound.setVolume(0.1);
+            mySound.play();
     		}
   	}
 
